@@ -1,95 +1,71 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"
+import { Col, Row } from "react-bootstrap";
+import Cursor from "./compoents/Cursor/Cursor";
+import CustomizedTables from "./compoents/CustomizedTables";
+import Form from "./compoents/Form/Form";
+import PriceComp from "./compoents/PriceComp";
+import WhyDrinkTyentWater from "./compoents/(Home)/WhyDrinkTyentWater";
+import ContactSection from "./compoents/(Home)/ContactSection";
+import WhyTyent from "./compoents/(Home)/WhyTyent";
+import SectionTwo from "./compoents/(Home)/SectionTwo";
+import ResponsiveProductPage from "./compoents/ProductData";
 
-export default function Home() {
+const Home = () => {
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div>
+      
+      <br/>
+     <br/>
+     <br/>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <SectionTwo />
+       <br/>
+       <br/>
+       <br/>
+     <WhyDrinkTyentWater />
+     <br/>
+     <br/>
+      <WhyTyent />
+      <br/>
+      <br/>
+
+
+      <div className="container">
+        <Row>
+          <Col md={6} className="d-flex justify-content-center alin-items-center" style={{backgroundColor:'#f2f2f2', color:'#000'}}>
+          <div style={{padding:'60px'}}>
+            <h2 style={{fontWeight:600}}>Why Tyent ?</h2>
+            <p style={{fontSize:'18px'}}>Tyent, a medical-grade water ionizer manufactured by TAEYOUNG E&T, is available in 86+ countries. Since more than 3 decades Tyent is known for its advanced Japanese technology, Tyent follows traditional marketing and offers end-to-end service with an in-house team handling demos, installations, and after-sales support, focusing customer satisfaction and brand trust.</p>
+          </div>
+          </Col>
+          <Col md={6} className="d-flex justify-content-center alin-items-center" style={{backgroundColor:'#008AC7', color:'#FFF'}}>
+          <div style={{padding:'60px'}}>
+            <h2 style={{fontWeight:600}}>What is Kangen ?</h2>
+            <p style={{fontSize:'18px'}}>Kangen, a medical-grade water ionizer manufactured by Enagic & Co, is available in 26+ countries., relies on an MLM business model, doubling prices as 49% of costs go to commissions for 30 middlemen. Unlike other ionizers, Kangen lacks manpower for demo, installation and after-sales doorstep service globally, Focusing revenue generation over end customer satisfaction.</p>
+          </div>
+          </Col>
+        </Row>
+      </div>
+
+
+      <br/>
+      <br/>
+      <br/>
+      <CustomizedTables />
+      <br/>
+      <br/>
+      <PriceComp />
+      <br/>
+      <br/>
+      <br/>
+      <ContactSection />
+      <br/>
+      <br/>
+
+      <Form />
+     
     </div>
-  );
+  )
 }
+export default Home;

@@ -13,7 +13,6 @@ gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
 const Page = () => {
   useEffect(() => {
-    const path = document.querySelector("#path");
     const pathLength = path.getTotalLength();
 
     gsap.utils.toArray(".circle-group").forEach((group) => {
@@ -34,7 +33,7 @@ const Page = () => {
           toggleActions: "play none none none",
         },
         motionPath: {
-          path: path, // Path to follow
+          path: '#path', // Path to follow
           align: path, // Align the group to the path
           alignOrigin: [0.5, 0.5], // Center alignment
           start: 0, // Start at the beginning of the path

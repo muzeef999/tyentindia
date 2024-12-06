@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 import { FaDroplet } from 'react-icons/fa6';
 import animationData from '@/asserts/icons/Business Goal.json'; 
 import Lottie from 'react-lottie';
-
+ 
 
 const Mission = () => {
     const waterTypes = [

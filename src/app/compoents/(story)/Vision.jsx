@@ -1,5 +1,5 @@
 import React from 'react'
-import lamp from '@/asserts/icons/lamp.json'
+import lamp from '@/asserts/icons/Lamp.json'
 import Lottie from 'react-lottie';
 
 const Vision = () => {

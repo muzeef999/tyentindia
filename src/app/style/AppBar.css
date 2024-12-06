@@ -3,7 +3,9 @@
 }
 
 body {
-    background-color: #f8fbfe; /* Light gray */
+    background-color: #f8fbfe;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    background-image: url("../../asserts/BG.png");
   }
 
 .appbg {
@@ -79,8 +81,15 @@ body {
     background-color: #FFF;
     border-radius: 24px;
     padding: 12px;
+    cursor: pointer;
     box-shadow: 0 0 32px 0 rgba(35, 0, 76, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  }
 
+  .custom-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
   }
 
   .sectiontwo {
@@ -117,4 +126,26 @@ body {
   background-color:#c8e0eb;
   
 }
+
+
+
+
+.custom-table thead, .custom-table tbody, .custom-table tr, .custom-table td {
+  background-color: transparent !important; /* Apply transparent to the entire table */
+}
+
+
+
+.h1, h2, h3, h4 {
+  margin-top: 40px; /* Space above the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+@media (max-width: 768px) {
+  h1, h2, h3, h4 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+}
+
 

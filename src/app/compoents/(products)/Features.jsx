@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import plates from '@/asserts/nmp/NMP5ECOMODE.webp'
 import { Col, Row } from 'react-bootstrap';
 import Image from 'next/image';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Features = () => {
+
+  useEffect(() => {
+    Aos.init({
+      duration: 1000, // You can customize duration or other settings here
+    });
+  }, []);
 
 
     const features = [
@@ -14,7 +23,7 @@ const Features = () => {
         },
         {
           title: "Advanced Power Supply",
-          description: "Tyent’s patented SMPS Plus power system, with 55+ adjustable settings, ensures consistent performance. Exclusively designed for ionizers, it allows Tyent to produce strong alkaline (11.5-2.5 pH) and acidic water without chemicals, enhancing both efficiency and lifespan.",
+          description: "Tyent's patented SMPS Plus power system, with 55+ adjustable settings, ensures consistent performance. Exclusively designed for ionizers, it allows Tyent to produce strong alkaline (11.5-2.5 pH) and acidic water without chemicals, enhancing both efficiency and lifespan.",
           icon: plates, // Replace with the actual path to your icon
         },
         {
@@ -24,7 +33,7 @@ const Features = () => {
         },
         {
           title: "Largest One-Touch Display",
-          description: "The Tyent NMP-7 ionizer offers the industry’s largest full-color LCD display with clear voice prompts. With a single touch, choose from 7 ionized water types, ensuring effortless and efficient hydration.",
+          description: "The Tyent NMP-7 ionizer offers the industry's largest full-color LCD display with clear voice prompts. With a single touch, choose from 7 ionized water types, ensuring effortless and efficient hydration.",
           icon: plates, // Replace with the actual path to your icon
         },
         {
@@ -53,31 +62,47 @@ const Features = () => {
       ];
 
   return (
-    <div>
-      <Row className="mb-5">
-        {features.map((feature, idx) => (
-          <Col md={6} key={idx} className="d-flex justify-content-center align-items-center">
-            <Image
-              src={feature.icon}
-              alt={feature.title} width={200}
-            />
-            <hr
-  style={{
-    margin: "8px",
-    height: "15vh", // 15% of viewport height
-    width: ".5vw",  // 0.5% of viewport width
-    border: "none", // Remove default border
-    backgroundColor: "#008AC7",
-  }}
-/>
-                  <div>
-            <h3 style={{color:'#008AC7', fontWeight:500}}>{feature.title}</h3>
-            <p style={{fontSize:'14px'}}>{feature.description}</p>
+    <div className="container">
+    <div className="row g-3">
+      {features.map((feature, idx) => (
+        <div
+          key={idx}
+          className="col-md-6"
+          data-aos="fade-up" // AOS animation for fade-up
+          data-aos-delay={idx * 100} // Delay to stagger the animations
+        >
+          <div className="custom-card">
+            <div className="d-flex justify-content-center align-items-center">
+              <div style={{ width: '100%' }}>
+                <Image
+                  src={feature.icon}
+                  alt={feature.title}
+                  layout="responsive"
+                  width={100} // Set a fixed width to maintain consistency
+                  height={100} // Set a fixed height to maintain aspect ratio
+                  priority
+                  placeholder="blur"
+                />
+              </div>
+              <hr
+                style={{
+                  margin: '8px',
+                  height: '15vh',
+                  width: '.5vw',
+                  border: 'none',
+                  backgroundColor: '#008AC7',
+                }}
+              />
+              <div>
+                <h4 style={{ color: '#008AC7', fontWeight: 500 }}>{feature.title}</h4>
+                <p style={{ fontSize: '14px' }}>{feature.description}</p>
+              </div>
             </div>
-          </Col>
-        ))}
-      </Row>
+          </div>
+        </div>
+      ))}
     </div>
+  </div>
   )
 }
 

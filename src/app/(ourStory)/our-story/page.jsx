@@ -21,8 +21,7 @@ const Page = () => {
       const cx = parseFloat(circle.getAttribute("cx"));
       const cy = parseFloat(circle.getAttribute("cy"));
 
-      // Find the start and end points on the path closest to the circle's position
-      const startLength = pathLength * (cx / 1910); // Assuming viewBox width is 1910
+      const startLength = pathLength * (cx / 1910); 
 
       gsap.to(group, {
         scrollTrigger: {
@@ -33,11 +32,11 @@ const Page = () => {
           toggleActions: "play none none none",
         },
         motionPath: {
-          path: '#path', // Path to follow
-          align: path, // Align the group to the path
+          path: '#path', 
+          align: path, 
           alignOrigin: [0.5, 0.5], // Center alignment
-          start: 0, // Start at the beginning of the path
-          end: startLength / pathLength, // End point based on the circle's position
+          start: 0, 
+          end: startLength / pathLength, 
          
         },
         duration: 3,

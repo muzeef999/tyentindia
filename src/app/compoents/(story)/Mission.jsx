@@ -13,33 +13,28 @@ const Mission = () => {
         { name:"To prioritize customer satisfaction by offering exceptional service, from product selection to after-sales support.", type: "Customer-Centric Approach", color: "#000"},
         { name:"To educate communities about the benefits of alkaline water and its role in fostering a healthier lifestyle.", type: "Education & Awareness", color: "#000"},
  
-      ];
+      ]; 
 
 
       const defaultOptions = {
         loop: true, // You can set loop: true for continuous loop
         autoplay: true, // Start automatically
         animationData: animationData, // Import the JSON animation data
-        rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice',
-        },
       };
     
       return (
         <div className='container'>
        
-       <Row style={{ height: '100vh' }} className="d-flex align-items-end">
-      <Col className="d-flex justify-content-end align-items-end float-end">
-        <Lottie options={defaultOptions} width={100} height={100} />
-      </Col>
-      <Col>
-        Hiii
-      </Col>
-    </Row>
 
-<h2 className='text-center' style={{ color: '#008AC7', fontWeight: '600', marginLeft: '10px' }}>
+<center>
+  <div>
+  <Lottie options={defaultOptions} width={100} height={100} style={{display: 'inline-block', verticalAlign: 'middle'}} />
+  <h1 className='text-center' style={{ color: '#008AC7', fontWeight: '600',margin:'0', display: 'inline-block', verticalAlign:'middle',}}>
       Mission
-  </h2>  
+  </h1>  
+</div>
+</center>
+
 
 
           <p className='text-center' style={{fontSize:'14px', fontWeight:500}}>

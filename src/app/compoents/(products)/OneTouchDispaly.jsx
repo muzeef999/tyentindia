@@ -9,7 +9,7 @@ const OneTouchDispaly = () => {
    
   const waterTypes = [
     { name:"Surface Cleaner", type: "Acid Level 1", color: "#ff7a00"},
-    { name:"Beauty water", type: "Acid Level 2", color: "#fff70c" },
+    { name:"Beauty water", type: "Acid Level 2", color: "#fef31f" },
     { name:"Purified water", type: "H2O", color: "#23c552"},
     { name:"Initial drinking water", type: "Alk Level 1", color: "#008ac7"},
     { name:"Moderate drinking water", type: "Alk Level2", color: "#0ab1ed"},
@@ -29,7 +29,7 @@ const OneTouchDispaly = () => {
       </p>
       <br/>
 
-    <Row className="justify-content-center easytotouchdisplay">
+    <Row className="justify-content-center easytotouchdisplay"> {/* hover effect easytotouchdisplay */}
       {waterTypes.map((type, idx) => (
         <Col
           md={3}
@@ -46,12 +46,13 @@ const OneTouchDispaly = () => {
               height: "54px",
               borderRadius: "50%",
               display: "flex",
-              padding:'9px',
+              padding:'16px',
+              margin:'5px',
               justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <FaDroplet style={{ color: "#FFF" }} size={30} />
+            <FaDroplet style={{ color: "#FFF" }} size={40} />
           </div>
 
           {/* Water Type Details */}

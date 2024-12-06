@@ -36,15 +36,19 @@ const Touchpreview = () => {
     <div className="image-container">
   <Image src={spec} alt="specifications" className="responsive-image" />
     </div>
+
     </center>
+    
     <div className="grid-containerdisplay d-flex flex-wrap justify-content-center align-items-center">
   {items.map((item) => (
+    <div key={item.id} className="custom-card m-2">
     <div
       key={item.id}
-      className="d-flex  custom-card grid-items-display align-items-center justify-content-center m-2"
+      className="d-flex   grid-items-display align-items-center justify-content-center"
     >
-      <span role="img" aria-label="water drop" className=" touchpreviewnumber">{item.id}</span> {/* Water drop icon */}
-      <p className="mt-3 text-center">{item.text}</p> {/* Text wrapping */}
+      <span role="img" aria-label="water drop" className="touchpreviewnumber">{item.id}</span> {/* Water drop icon */}
+      <p className="m-0 text-center">{item.text}</p> {/* Text wrapping */}
+    </div>
     </div>
   ))}
 </div>

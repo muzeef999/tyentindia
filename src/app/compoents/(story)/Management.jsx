@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const Management = () => {
   return (
-    <div className='container-fluid' style={{backgroundColor:'#F5F5F5'}}>
+    <div className='container-fluid'>
         <br/>
         <br/>
         <h2 className='text-center' style={{color:'#008AC7', fontWeight:'600'}}>Our Management </h2>

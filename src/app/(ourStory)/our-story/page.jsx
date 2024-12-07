@@ -1,8 +1,15 @@
+import Management from '@/app/compoents/(story)/Management'
+import Vision from '@/app/compoents/(story)/Vision'
+import Form from '@/app/compoents/Form/Form'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <Vision />
+      <Management />
+      <Form />
+    </div>
   )
 }
 

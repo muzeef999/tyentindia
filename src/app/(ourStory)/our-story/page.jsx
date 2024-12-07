@@ -13,13 +13,14 @@ gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 const Page = () => {
   useEffect(() => {
 
-    const path = document.querySelector("#path"); // Select the <path> element
-    if (!path) {
-      console.error("Path element not found");
-      return;
-    }
-    const pathLength = path.getTotalLength();
+if (typeof window === "undefined") return;
 
+const path = document.querySelector("#path"); // Select the <path> element
+if (!path) {
+  console.error("Path element not found");
+  return;
+}
+const pathLength = path.getTotalLength();
 
     gsap.utils.toArray(".circle-group").forEach((group) => {
       const circle = group.querySelector("circle");

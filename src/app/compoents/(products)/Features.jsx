@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect } from 'react'
 import plates from '@/asserts/nmp/NMP5ECOMODE.webp'
 import { Col, Row } from 'react-bootstrap';

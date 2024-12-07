@@ -1,4 +1,5 @@
-import React from 'react';
+"use client"
+import React, { useEffect } from 'react';
 import display from "../../../asserts/display/pro_06.png";
 import display1 from "../../../asserts/display/pro_07.png";
 import display2 from "../../../asserts/display/pro_08.png";
@@ -7,6 +8,7 @@ import display4 from "../../../asserts/display/pro_10.png";
 import display5 from "../../../asserts/display/pro_11.png";
 import display6 from "../../../asserts/display/pro_12.png";
 import Image from 'next/image';
+import Aos from 'aos';
 
 const Display = () => {
   const images = [
@@ -19,24 +21,38 @@ const Display = () => {
     { src: display6, alt: "Alkaline level", range:" 2 - 9 pH" },
   ];
 
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 }); // Animation duration in ms
+  }, []);
+
+
   return (
     <div className="container text-center">
-      <h2 style={{color:'#008AC7', fontWeight:'600'}}>Easy To Use One Touch Display</h2>
-      <p style={{fontSize:'14px', fontWeight:500}}>
-        Each function has distinct icons, and you can start or stop the <br/> desired water with one touch.
+      <h2 style={{ color: '#008AC7', fontWeight: '600' }}>Easy To Use One Touch Display</h2>
+      <p style={{ fontSize: '14px', fontWeight: 500 }}>
+        Each function has distinct icons, and you can start or stop the <br /> desired water with one touch.
       </p>
-      <div className="row  align-items-center justify-content-center">
+      <div className="row align-items-center justify-content-center">
         {images.map((image, index) => (
-          <div className="col-12 col-sm-8 col-md-6 p-3" key={index}>
+          <div
+            className="col-12 col-sm-8 col-md-6 p-3"
+            key={index}
+            data-aos={index % 2 === 0 ? "fade-right" : "fade-left"} // Alternate animations
+          >
             <div>
-            <h4 className='m-0' style={{fontWeight:600}}>{image.alt}</h4>
-            <p style={{fontSize:'18px', fontWeight:400, color:'#008AC7'}}>{image.range}</p>
-              <Image src={image.src} alt={image.alt} className="img-fluid" style={{border:'1px solid #000', borderRadius:'5px'}} />
+              <h4 className="m-0" style={{ fontWeight: 600 }}>{image.alt}</h4>
+              <p style={{ fontSize: '18px', fontWeight: 400, color: '#008AC7' }}>{image.range}</p>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                className="img-fluid"
+                style={{ border: '1px solid #000', borderRadius: '5px' }}
+              />
             </div>
           </div>
         ))}
       </div>
-      
     </div>
   );
 };

@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import gsap from 'gsap';
 import { Col, Row } from 'react-bootstrap';
 import Image from 'next/image';
 import waterbody from "@/asserts/Humanbody.png"
@@ -9,9 +7,6 @@ import waterbody from "@/asserts/Humanbody.png"
 const AnimatedSVG = () => {
   
 
-    useEffect(() => {
-       
-      }, []);
 
 
   return (

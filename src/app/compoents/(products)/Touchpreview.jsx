@@ -1,7 +1,9 @@
+"use client"
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import spec from "@/asserts/nmp/spec.png"
 import "@/app/style/Nmp.css"
+import Aos from "aos";
 
 const Touchpreview = () => {
   const items = [
@@ -27,6 +29,11 @@ const Touchpreview = () => {
     { id: 20, text: "2nd Filter indicator & reset" },
   ];
 
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 }); // Initialize AOS with animation duration
+  }, []);
+
   return (
     <div>
       <center>
@@ -40,8 +47,9 @@ const Touchpreview = () => {
     </center>
     
     <div className="grid-containerdisplay d-flex flex-wrap justify-content-center align-items-center">
-  {items.map((item) => (
-    <div key={item.id} className="custom-card m-2">
+  {items.map((item, index) => (
+    <div key={item.id} className="custom-card m-2" data-aos={index % 2 === 0 ? "fade-up" : "zoom-in"}
+    data-aos-delay={`${index * 50}`}>
     <div
       key={item.id}
       className="d-flex   grid-items-display align-items-center justify-content-center"

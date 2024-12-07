@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/all";
@@ -13,7 +12,14 @@ gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
 const Page = () => {
   useEffect(() => {
+
+    const path = document.querySelector("#path"); // Select the <path> element
+    if (!path) {
+      console.error("Path element not found");
+      return;
+    }
     const pathLength = path.getTotalLength();
+
 
     gsap.utils.toArray(".circle-group").forEach((group) => {
       const circle = group.querySelector("circle");

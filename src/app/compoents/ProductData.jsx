@@ -13,7 +13,7 @@ const ProductData = [
     category: "NMP Series",
     products: [
       {
-        title: "Model:NMP-5",
+        title: "NMP-5",
         image:nmp5,
         link:"nmp-5",
         details: [
@@ -23,7 +23,7 @@ const ProductData = [
         ],
       },
       {
-        title: "Model:NMP-7",
+        title: "NMP-7",
         image:nmp5,
         link:"nmp-7",
         details: [
@@ -33,7 +33,7 @@ const ProductData = [
         ],
       },
       {
-        title: "Model:NMP-8",
+        title: "NMP-8",
         image:nmp9,
         link:"nmp-9",
         details: [
@@ -43,9 +43,9 @@ const ProductData = [
         ],
       },
       {
-        title: "Model:NMP-9",
+        title: "NMP-9",
         image:nmp9,
-        link:"nmp-9",
+        link:"nmp-11",
         details: [
           { label: "Model", value: "NMP-9" },
           { label: "Ph Range", value: "2.5-11.5" },
@@ -176,12 +176,11 @@ const ResponsiveProductPage = ({setOpen}) => {
         (section, idx) =>
           activeCategory === section.category && (
             <div key={idx} className="mb-5">
-              <h3 className="text-center mb-4">{section.category}</h3>
               <Row>
                 {section.products.map((product, index) => (
                   <Col key={index} xs={12} sm={6} md={4} lg={3}>
                     <Link href={`${product.link}`}   onClick={() => setOpen(false)}>
-                    <Card className="h-100 shadow-sm border-0">
+                    <Card className="h-100 shadow-sm border-0" style={{backgroundColor:'#f1f1ef', textDecoration:'none'}}>
                       <div className="d-flex justify-content-center position-relative">
                         {/* Product Image */}
                         <Image
@@ -197,21 +196,7 @@ const ResponsiveProductPage = ({setOpen}) => {
                         />
                       </div>
 
-                      {/* Product Details */}
-                      <div className="details-container">
-                        {product.details.map((detail, i) => (
-                          <div
-                            key={i}
-                            className="detail-item"
-                            onClick={() => handleToggle(`${index}-${i}`)}
-                          >
-                            <span className="label">{detail.label}</span>
-                            {expandedProduct === `${index}-${i}` && (
-                              <span className="value">: {detail.value}</span>
-                            )}
-                          </div>
-                        ))}
-                      </div>
+                     <h5 className="text-center">{product.title}</h5>
                     </Card>
                     </Link>
                   </Col>

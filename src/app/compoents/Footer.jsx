@@ -5,12 +5,17 @@ import { FaFacebook, FaLinkedin, FaTwitter, FaInstagram, FaYoutube, FaPhoneAlt, 
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-dark py-5">
+    <footer  style={{color:'#FFF'}}>
+      <svg width="100%" height="auto" viewBox="0 0 1919 280">
+  <path d="M952 89.5003C465.5 56.6539 179.5 155.059 1 282V994.5H1919V125.5C1759.5 189.5 1321 114.414 952 89.5003Z" fill="#008ac7" />
+</svg>
+
+<div className='py-5' style={{backgroundColor:'#008ac7'}}>
       <Container>
         <Row>
           {/* Column 1: Products */}
           <Col xs={12} md={3} className="mb-4">
-            <h5 style={{ color: "#008AC7" }}>Products</h5>
+            <h5 style={{ color: "#FFF" }}>Products</h5>
             <ul className="list-unstyled">
               <li>Counter-Top Water Ionizers</li>
               <li>Under-Counter Water Ionizers</li>
@@ -23,7 +28,7 @@ const Footer = () => {
 
           {/* Column 2: Customers */}
           <Col xs={12} md={3} className="mb-4">
-            <h5 style={{ color: "#008AC7" }}>Customers</h5>
+            <h5 style={{ color: "#FFF" }}>Customers</h5>
             <ul className="list-unstyled">
               <li>Dealer Opportunity</li>
               <li>Usage Instructions</li>
@@ -35,7 +40,7 @@ const Footer = () => {
 
           {/* Column 3: Technical Information */}
           <Col xs={12} md={3} className="mb-4">
-            <h5 style={{ color: "#008AC7" }}>Technical Information</h5>
+            <h5 style={{ color: "#FFF" }}>Technical Information</h5>
             <ul className="list-unstyled">
               <li>Tyent Vs Enagic Kangen</li>
               <li>Tyent’s Solid Hybrid Mesh Plates</li>
@@ -47,7 +52,7 @@ const Footer = () => {
 
           {/* Column 4: Product Sales & Service */}
           <Col xs={12} md={3} className="mb-4">
-            <h5 style={{ color: "#008AC7" }}>Product Sales & Service</h5>
+            <h5 style={{ color: "#FFF" }}>Product Sales & Service</h5>
             <ul className="list-unstyled">
               <li>Product Demo: 9182-41-41-81</li>
               <li>Product Support: <a href="mailto:Sravan@medilightindia.com">Sravan@medilightindia.com</a></li>
@@ -60,34 +65,67 @@ const Footer = () => {
         <hr/>
 
         {/* Footer Bottom */}
-        <Row className="align-items-center">
+        <Row className="d-flex align-items-center justify-content-between">
           {/* Left Side: Copyright Text */}
-          <Col xs={12} md={6} className="text-left">
-            <p>© Tyent USA 2007-2025. All Rights Reserved.</p>
+          <Col xs={12} md={6} className="text-center text-md-left mb-3 mb-md-0">
+            <p style={{ fontSize: "14px", fontWeight: "400", opacity: 0.7 }}>
+              © Tyent INDIA. All Rights Reserved.
+            </p>
           </Col>
 
           {/* Right Side: Social Media Icons */}
-          <Col xs={12} md={6} className="text-right">
+          <Col xs={12} md={6} className="text-center text-md-right">
             <div className="social-icons">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                style={{ color: "#316FF6", margin: "0 10px" }}
+              >
                 <FaFacebook size={30} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                style={{ color: "", margin: "0 10px" }}
+              >
                 <FaLinkedin size={30} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                style={{ color: "", margin: "0 10px" }}
+              >
                 <FaTwitter size={30} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                style={{ color: "", margin: "0 10px" }}
+              >
                 <FaInstagram size={30} />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                style={{ color: "", margin: "0 10px" }}
+              >
                 <FaYoutube size={30} />
               </a>
             </div>
           </Col>
         </Row>
       </Container>
+      </div>
     </footer>
   );
 };

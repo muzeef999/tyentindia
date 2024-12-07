@@ -48,17 +48,18 @@ body {
 
 }
 .second-section{
-  
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   background-color: #f8f9fa;
+  box-shadow: 0 0 12px 0 rgba(28, 0, 76, 0.50);
+  overflow: hidden; /* Hides content when collapsed */
+  transition: max-height 0.5s ease, padding 0.5s ease; /* Smooth transitions */
 }
 .navbar {
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
-    padding: 10px;
+  padding: 10px;
 }
-
 
 
 
@@ -134,7 +135,18 @@ body {
   background-color: transparent !important; /* Apply transparent to the entire table */
 }
 
+.rotate-360 {
+  animation: rotate-animation 29s linear infinite;
+}
 
+@keyframes rotate-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 .h1, h2, h3, h4 {
   margin-top: 40px; /* Space above the heading */
@@ -149,3 +161,32 @@ body {
 }
 
 
+
+
+/* Below max-width: 768px (Mobile) */
+@media (max-width: 768px) {
+  #displaysvgresponsive {
+    padding: 28px; /* Reduced padding for mobile devices */
+  }
+}
+
+/* Between 769px and 1024px (Tablet) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #displaysvgresponsive {
+    padding: 40px; /* Padding adjusted for tablets */
+  }
+}
+
+/* Between 1025px and 1440px (Laptop) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  #displaysvgresponsive {
+    padding: 60px; /* Default padding for laptops */
+  }
+}
+
+/* Above 1440px (Desktop) */
+@media (min-width: 1441px) {
+  #displaysvgresponsive {
+    padding: 80px; /* Larger padding for larger screens */
+  }
+}

@@ -1,6 +1,8 @@
-import React from "react";
+"use client"
+import React, { useEffect, useRef } from "react";
 import { Col, Row } from "react-bootstrap";
 import '../../style/WhyDrinkTyentWater.css'; // External CSS file for styling
+import gsap from "gsap";
 
 const WhyDrinkTyentWater = () => {
   const cardDetails = [
@@ -51,6 +53,25 @@ const WhyDrinkTyentWater = () => {
       `,
     },
   ];
+
+  const lineRef = useRef(null);
+  const dotRef = useRef(null);
+
+
+  useEffect(() => {
+    gsap.fromTo(
+      lineRef.current,
+      { strokeDasharray: "500", strokeDashoffset: "500" }, // Start hidden
+      { strokeDashoffset: "0", duration: 2, ease: "power2.inOut" } // Draw the line
+    );
+
+    // Animate the dot appearance after the line is drawn
+    gsap.fromTo(
+      dotRef.current,
+      { opacity: 0, scale: 0 },
+      { opacity: 1, scale: 1, duration: 0.5, ease: "bounce.out", delay: 2 } // Delay matches line duration
+    );
+  }, []);
  
   return (
     <div className="container">
@@ -63,18 +84,34 @@ const WhyDrinkTyentWater = () => {
         </Col>
 
         {/* Right side line with dot */}
-        <Col xs={12} md={8} className="text-end">
-          <div className="d-flex align-items-center justify-content-end">
-            <hr style={{ flex: 1, borderTop: '2px solid #008AC7', margin: '0 10px' }} />
-            <div
-              style={{
-                width: '20px',
-                height: '20px',
-                backgroundColor: '#008AC7',
-                borderRadius: '50%',
-              }}
-            ></div>
-          </div>
+        <Col xs={12} md={8}  className="text-end">
+        <svg
+        width="100%"
+        height="10"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ display: "block", margin: "0 auto" }}
+      >
+        {/* Horizontal Line */}
+        <line
+          ref={lineRef}
+          x1="50"
+          y1="50"
+          x2="650"
+          y2="50"
+          stroke="#008ac7"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        {/* Dot at the End */}
+        <circle
+          ref={dotRef}
+          cx="550"
+          cy="50"
+          r="12"
+          fill="#008ac7"
+        />
+      </svg>
+
         </Col>
       </Row>
       <br/>

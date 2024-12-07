@@ -1,4 +1,3 @@
-"use clent"
 import React from "react";
 import "../../../../style/Nmp.css";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
@@ -9,16 +8,25 @@ import Filter from "@/app/compoents/(products)/Filter";
 import OneTouchDispaly from "@/app/compoents/(products)/OneTouchDispaly";
 import npmhealth from "@/asserts/npmhealth.png";
 import Image from "next/image";
-import gsap from "gsap/all";
+import plates from "@/asserts/nmp/NMP5ECOMODE.webp";
 import AnimatedSVG from "@/app/compoents/(products)/AnimatedSVG";
 import Certifications from "@/app/compoents/Certifications";
 import ProductSection from "@/app/compoents/(products)/ProductSection";
-
+ 
 const TyentNMP5 = () => {
-
   const handleTab = (index) => {
     setCurrentIndex(index);
   };
+
+  const products = [
+    {
+      src: [
+        "https://firebasestorage.googleapis.com/v0/b/tyent-fa17c.appspot.com/o/nmp%2FPRODUCTNMP1.webp?alt=media&token=522f47f3-2aef-47ef-9ddb-c426ac468fa5",
+        "https://firebasestorage.googleapis.com/v0/b/tyent-fa17c.appspot.com/o/nmp%2FPRODUCTIMAGESNMP3.webp?alt=media&token=a492cd28-e40d-4a0a-a569-2cc647a89eb8",
+        "https://firebasestorage.googleapis.com/v0/b/tyent-fa17c.appspot.com/o/nmp%2FPRODUCTIMAGESNMP2.webp?alt=media&token=b032deee-d922-4b11-946e-81b555e14e56",
+      ],
+    },
+  ];
 
   const specifications = [
     { label: "Model", name: "Tyent NMP-5" },
@@ -85,12 +93,68 @@ const TyentNMP5 = () => {
     },
   ];
 
+  const features = [
+    {
+      title: "11 Japanese Plates",
+      description:
+        "The Tyent NMP-7 features seven platinum-coated, 99.99% pure solid hybrid mesh electrode/plates crafted with advanced Japanese technology, ensuring stable oxygen levels, -ORP up to -950*, and superior micro-clustering. Includes 15-year warranty, 45+ years lifespan.",
+      icon: plates, // Replace with the actual path to your icon
+    },
+    {
+      title: "Advanced Power Supply",
+      description:
+        "Tyent's patented SMPS Plus power system, with 55+ adjustable settings, ensures consistent performance. Exclusively designed for ionizers, it allows Tyent to produce strong alkaline (11.5-2.5 pH) and acidic water without chemicals, enhancing both efficiency and lifespan.",
+      icon: plates, // Replace with the actual path to your icon
+    },
+    {
+      title: "Produces 7 Water Levels",
+      description:
+        "The Tyent NMP-7 water ionizer produces a continuous stream of 7 different water levels,ranging from strong alkaline water (11.5 pH) to strong acidic water (2.5 pH). This versatile ionizer meets all your family’s needs, providing pH levels for drinking, cleaning, and more.",
+      icon: plates, // Replace with the actual path to your icon
+    },
+    {
+      title: "Largest One-Touch Display",
+      description:
+        "The Tyent NMP-7 ionizer offers the industry's largest full-color LCD display with clear voice prompts. With a single touch, choose from 7 ionized water types, ensuring effortless and efficient hydration.",
+      icon: plates, // Replace with the actual path to your icon
+    },
+    {
+      title: "PAST Cleaning Technology",
+      description:
+        "Tyent Water Ionizers use advanced Polarity Anti Scale Technology (PAST) for automated cleaning. Timer and sensor activation reduce mineral buildup on electrodes, enhancing durability and consistently delivering healthy, ionized water.",
+      icon: plates, // Replace with the actual path to your icon
+    },
+    {
+      title: "Fixed Quantity Output",
+      description:
+        "Tyent water ionizers are engineered for modern convenience, featuring the fixed quantity output function. It delivers accurate quantity of 0.5L, 1.0L, or 1.5L, making hydration and cooking effortless and accurate for daily use.",
+      icon: plates,
+    },
+    {
+      title: "ECO Mode",
+      description:
+        "The Tyent water ionizer’s features Eco Mode, enhancing energy efficiency with up to 99.9% savings. It reduces power consumption by automatically turning off the LCD backlight during idle periods, ensuring optimal performance while conserving electricity.",
+      icon: plates, // Replace with the actual path to your icon
+    },
+    {
+      title: "Real-Time Filter Indication",
+      description:
+        "The Tyent water ionizer’s features a user-friendly LCD display that tracks real-time filter usage, alerting you when replacements are needed. This convenient monitoring system helps maintain optimal performance and ensures clean, healthy water at all times.",
+      icon: plates, // Replace with the actual path to your icon
+    },
+  ];
+
+
 
   return (
     <div>
-      <Container className="py-5 tyent-page">
-         
-         <ProductSection />
+      <Container>
+
+      {/*product Add to Cart*/}
+      <ProductSection
+        products={products}
+        specifications={specifications}
+      />
 
         {/* Description Section */}
         <Row className="mb-5">
@@ -117,8 +181,14 @@ const TyentNMP5 = () => {
         </Row>
 
         {/* Features Section */}
-        <Features />
-
+          <div className="row g-3">
+            {features.map((data, index) => (
+              <div className="col-md-6" key={data.id}>
+                <Features data={data} delay={index * 100} />
+              </div>
+            ))}
+          </div>
+      
         <br />
         <br />
 

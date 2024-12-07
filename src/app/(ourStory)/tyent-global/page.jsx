@@ -1,10 +1,26 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
+import datamap from "@/asserts/map.png"
+import Image from 'next/image'
 
 const page = () => {
   return (
     <div>
-       <section className="py-5 bg-light">
+       <section>
+
+<Row>
+  <Col md={6}>
+  <div>
+    <h3>Who we are</h3>
+  </div>
+  </Col>
+  <Col md={6}>
+  <div style={{width:'100%'}}>
+    <Image className='rotate-360' src={datamap} alt="googlemap"  layout='responsive' priority />
+  </div>
+  </Col>
+</Row>
+
         <Container>
           <Row className="text-center">
             <h2>Global Presence</h2>

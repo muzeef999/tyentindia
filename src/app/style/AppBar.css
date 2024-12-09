@@ -190,3 +190,31 @@ body {
     padding: 80px; /* Larger padding for larger screens */
   }
 }
+
+
+
+.card-container-data {
+  background-color: #FFF;
+  box-shadow: 0px 5px 15px rgba(0, 138, 199, 0.5); /* Adjusted box-shadow */
+  }
+
+
+/* Product Section and Heading */
+.product-section {
+  color: #000;
+  background-color: #008ac7;
+  box-shadow: 0px 5px 15px rgba(0, 138, 199, 0.5); /* Adjusted box-shadow */
+  overflow: hidden;
+ border: 1px solid #FFF;
+ justify-content: center;
+ align-items: center;
+}
+
+
+
+
+
+
+
+
+

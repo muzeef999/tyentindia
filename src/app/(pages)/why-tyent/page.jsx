@@ -6,7 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const page = () => {
+const Page = () => {
 
 
 
@@ -265,4 +265,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

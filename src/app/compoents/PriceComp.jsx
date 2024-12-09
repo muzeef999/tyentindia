@@ -1,132 +1,110 @@
-import React from "react";
-import { Col, Row, Table } from "react-bootstrap";
-import "../style/AppBar.css"
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Reusable Table Component
-const ComparisonTable = ({ title, data, isTyent }) => (
-  <Table className="rounded"
-    bordered
-    hover
-    style={{
-      borderSpacing: "0",
-      width: "100%",
-      border: "1px solid #ddd",
-      borderRadius: "4px",
-      marginBottom: "20px",
-    }}
-  >
-    <thead>
-      <tr>
-        <th
-          style={{
-            textAlign: "center",
-            color: isTyent ? "#008AC7" : "#000", // Title color based on brand
-            fontSize: "24px",
-            fontWeight:700
-          }}
-          colSpan="2"
-        >
-          {title}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      {data.map((row, index) => (
-        <tr key={index} style={{ border: "1px solid #ddd" }}>
-          <td
-            style={{
-              textAlign: "left",
-              padding: "8px",
-              fontSize:"18px",
-              color: isTyent ? "#008AC7" : "inherit", // Label color for Tyent
-              fontWeight: isTyent ? "normal" : "normal",
-            }}
-          >
-            {row.label}
-          </td>
-          <td style={{ textAlign: "left", padding: "8px" }}>{row.value}</td>
-        </tr>
-      ))}
-    </tbody>
-  </Table>
-);
+gsap.registerPlugin(ScrollTrigger);
 
-const PriceComp = () => {
-  const tablesData = [
+const ComparisonTable = () => {
+  const comparisonData = [
     {
-      title: "TYENT NMP-5",
-      isTyent: true,
-      data: [
-        { label: "Price:", value: "160,000/-" },
-        { label: "Generates:", value: "7 Water types" },
-        { label: "Plates:", value: "5" },
-        { label: "ORP:", value: "-850" },
-        { label: "Warranty:", value: "3 yr & 15 yr on plates" },
+      product: "TYENT NMP-5 vs  KANGEN Jr4",
+      features: [
+        { feature: "Price", tyent: "160,000/-", kangen: "218,000/-" },
+        { feature: "Generates", tyent: "7 Water types", kangen: "5 Water types" },
+        { feature: "Plates", tyent: "5", kangen: "4" },
+        { feature: "ORP", tyent: "-850", kangen: "-450" },
+        { feature: "Warranty", tyent: "3 yr & 15 yr on plates", kangen: "3 years" },
       ],
     },
     {
-      title: "ENAGIC KANGEN Jr4",
-      isTyent: false,
-      data: [
-        { label: "Price:", value: "218,000/-" },
-        { label: "Generates:", value: "5 Water types" },
-        { label: "Plates:", value: "4" },
-        { label: "ORP:", value: "-450" },
-        { label: "Warranty:", value: "3 years" },
+      product: "TYENT NMP-5 vs  KANGEN Jr4",
+      features: [
+        { feature: "Price", tyent: "160,000/-", kangen: "218,000/-" },
+        { feature: "Generates", tyent: "7 Water types", kangen: "5 Water types" },
+        { feature: "Plates", tyent: "5", kangen: "4" },
+        { feature: "ORP", tyent: "-850", kangen: "-450" },
+        { feature: "Warranty", tyent: "3 yr & 15 yr on plates", kangen: "3 years" },
       ],
     },
     {
-      title: "TYENT NMP-7",
-      isTyent: true,
-      data: [
-        { label: "Price:", value: "195,000/-" },
-        { label: "Generates:", value: "7 Water types" },
-        { label: "Plates:", value: "7" },
-        { label: "ORP:", value: "-950" },
-        { label: "Warranty:", value: "3 yr & 15 yr on plates" },
+      product: "TYENT NMP-5 vs  KANGEN Jr4",
+      features: [
+        { feature: "Price", tyent: "160,000/-", kangen: "218,000/-" },
+        { feature: "Generates", tyent: "7 Water types", kangen: "5 Water types" },
+        { feature: "Plates", tyent: "5", kangen: "4" },
+        { feature: "ORP", tyent: "-850", kangen: "-450" },
+        { feature: "Warranty", tyent: "3 yr & 15 yr on plates", kangen: "3 years" },
       ],
     },
     {
-      title: "ENAGIC KANGEN SD501",
-      isTyent: false,
-      data: [
-        { label: "Price:", value: "277,000/-" },
-        { label: "Generates:", value: "5 Water types" },
-        { label: "Plates:", value: "7" },
-        { label: "ORP:", value: "-631" },
-        { label: "Warranty:", value: "5 years" },
-      ],
-    },
-    {
-      title: "TYENT NMP-9",
-      isTyent: true,
-      data: [
-        { label: "Price:", value: "227,000/-" },
-        { label: "Generates:", value: "7 Water types" },
-        { label: "Plates:", value: "9" },
-        { label: "ORP:", value: "-1050" },
-        { label: "Warranty:", value: "3 yr & 15 yr on plates" },
-      ],
-    },
-    {
-      title: "ENAGIC KANGEN k8",
-      isTyent: false,
-      data: [
-        { label: "Price:", value: "3,45,000/-" },
-        { label: "Generates:", value: "5 Water types" },
-        { label: "Plates:", value: "8" },
-        { label: "ORP:", value: "-722" },
-        { label: "Warranty:", value: "3 years" },
+      product: "TYENT NMP-5 vs  KANGEN Jr4",
+      features: [
+        { feature: "Price", tyent: "160,000/-", kangen: "218,000/-" },
+        { feature: "Generates", tyent: "7 Water types", kangen: "5 Water types" },
+        { feature: "Plates", tyent: "5", kangen: "4" },
+        { feature: "ORP", tyent: "-850", kangen: "-450" },
+        { feature: "Warranty", tyent: "3 yr & 15 yr on plates", kangen: "3 years" },
       ],
     },
   ];
 
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    // Apply separate animations for each card
+    cardRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          { x: index % 2 === 0 ? -300 : 300, opacity: 0 }, // Cards slide in from alternating sides
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card, // Trigger animation for this specific card
+              start: "top 80%", // Start when this card enters the viewport
+              end: "top 50%", // Animation ends here
+              scrub: true,
+              
+            },
+          }
+        );
+      }
+    });
+
+    // Cleanup ScrollTriggers on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+  const handleMouseEnter = (index) => {
+    gsap.to(cardRefs.current[index], {
+      scale: 1.1,
+      zIndex: 10,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
+  const handleMouseLeave = (index) => {
+    gsap.to(cardRefs.current[index], {
+      scale: 1,
+      zIndex: 1,
+      duration: 0.3,
+      ease: "power2.inOut",
+    });
+  };
+
   return (
     <div className="container">
-     
 
-      <h1 className="text-center" style={{ fontSize: '3rem', fontWeight: 'bold', color: '#333' }}>
-      Detailed Comparison
+
+      
+<h1 className="text-center" style={{ fontSize: '3rem', fontWeight: 'bold', color: '#333' }}>
+Detailed Comparison
 </h1>
 <p 
   className="text-center" 
@@ -141,25 +119,70 @@ const PriceComp = () => {
     {' '}VS{' '}
   </span> <span style={{color:'#7B7B7B'}}>Kangen</span>
 </p>
-
-      <Row>
-        {tablesData.map((table, index) => (
-          <Col
-            xs={12}
-            md={6}
-            className="d-flex align-items-center justify-content-center text-center mb-4"
+      <div style={{ display: "flex", flexDirection: "row", position: "relative" }}>
+        {comparisonData.map((product, index) => (
+          <div
             key={index}
+            className="d-flex card-container-data"
+            style={{
+              position: "relative",
+              marginRight: index < comparisonData.length - 1 ? "-80px" : "0px",
+              zIndex: index,
+              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+              backgroundColor: "#ffffff",
+              borderRadius: "8px",
+              overflow: "hidden",
+            }}
+            ref={(el) => (cardRefs.current[index] = el)} // Attach ref to each card
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
           >
-            <ComparisonTable
-              title={table.title}
-              data={table.data}
-              isTyent={table.isTyent}
-            />
-          </Col>
+            {/* Product Heading Displayed Vertically */}
+            <div
+              className="p-1 product-section"
+              style={{
+                writingMode: "vertical-rl",
+                fontSize: "16px",
+                color: "#FFFF",
+                transform: "rotate(180deg)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span className="highlight" style={{ fontWeight: "bold" }}>
+                {product.product}
+              </span>
+            </div>
+
+            {/* Comparison Table */}
+            <div>
+              <table className="table table-bordered w-100">
+                <thead>
+                  <tr>
+                    <th className="text-center">Tyent</th>
+                    <th className="text-center">Feature</th>
+                    <th className="text-center">Kangen</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {product.features.map((row, idx) => (
+                    <tr key={idx}>
+                      <td className="text-center">{row.tyent}</td>
+                      <td className="text-center" style={{ fontWeight: "600" }}>
+                        {row.feature}
+                      </td>
+                      <td className="text-center">{row.kangen}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         ))}
-      </Row>
+      </div>
     </div>
   );
 };
 
-export default PriceComp;
+export default ComparisonTable;

@@ -6,6 +6,9 @@ import icon3 from "@/asserts/certifications/3.png";
 import icon4 from "@/asserts/certifications/4.png";
 import icon5 from "@/asserts/certifications/5.png";
 import icon6 from "@/asserts/certifications/6.png";
+import Link from 'next/link';
+import { FaArrowRight } from "react-icons/fa6";
+
 
 const Certifications = () => {
   return (
@@ -44,6 +47,9 @@ const Certifications = () => {
             ))}
           </div>
         </center>
+     
+     <Link style={{textDecoration:'none', color:'#565959'}} className='float-end' href={"/certifications"}>View All &nbsp; <FaArrowRight/></Link>
+
       </div>
     </>
   );
